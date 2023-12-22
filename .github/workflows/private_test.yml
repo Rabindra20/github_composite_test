@@ -1,0 +1,17 @@
+
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: private action
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: private action
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          who-to-greet: 'no one'
